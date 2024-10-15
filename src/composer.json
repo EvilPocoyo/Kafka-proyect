@@ -1,0 +1,7 @@
+{
+    "require": {
+        "kwn/php-rdkafka-stubs": "^2.0",
+        "ext-pdo": "*",
+        "ext-sqlsrv": "*"
+    }
+}
