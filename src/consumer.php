@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/db.php';
 
 $conf = new RdKafka\Conf();
 $conf->set('group.id', 'myConsumerGroup');
@@ -18,7 +17,7 @@ while (true) {
         case RD_KAFKA_RESP_ERR_NO_ERROR:
             $data = json_decode($message->payload, true);
             echo "Procesando mensaje: " . $message->payload . "\n";
-            processMessage($data);
+            // Aquí puedes agregar lógica adicional si es necesario
             break;
         case RD_KAFKA_RESP_ERR__PARTITION_EOF:
             echo "No más mensajes; esperando...\n";
@@ -30,9 +29,4 @@ while (true) {
             echo "Error: " . $message->errstr() . "\n";
             break;
     }
-}
-
-function processMessage($data) {
-    // Aquí puedes agregar lógica adicional de procesamiento si es necesario
-    echo "Datos procesados: " . print_r($data, true) . "\n";
 }

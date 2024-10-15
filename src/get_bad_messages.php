@@ -8,8 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-$messages = file_get_contents(__DIR__ . '/bad_messages.json');
-$messages = explode("\n", trim($messages));
-$messages = array_map('json_decode', $messages);
+require_once __DIR__ . '/db.php';
 
-echo json_encode(array_filter($messages));
+$conn = getDbConnection();
+$stmt = $conn->query("SELECT * FROM usr WHERE mensaje IS NOT NULL");
+$messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo json_encode($messages);
