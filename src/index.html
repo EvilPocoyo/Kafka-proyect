@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes y Groserías</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Enviar Mensaje</h1>
+        <form id="messageForm">
+            <input type="text" id="usuario" placeholder="Usuario" required>
+            <input type="email" id="correo" placeholder="Correo" required>
+            <textarea id="mensaje" placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <h2>Mensajes con Groserías</h2>
+        <button id="updateChartBtn">Actualizar Gráfica</button>
+        <canvas id="badWordsChart"></canvas>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
