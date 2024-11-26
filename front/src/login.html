@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SafeText - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <!-- Add the rain container -->
+    
+
+    <!-- Rest of your existing HTML remains exactly the same -->
+    <div class="brand-header">
+        <div class="brand" onclick="location.href='/index.html';">
+            <img src="/icons/SecurityLock.png" alt="SafeText Logo" class="brand-logo">
+            <span class="brand-name">SafeText</span>
+        </div>
+    </div>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-form">
+                <!-- Dentro del div con clase login-form -->
+                <div class="login-form">
+                    <div class="login-header">
+                        <img src="/icons/SecurityLock.png" class="login-logo" alt="SafeText Security Lock">
+                        <h1>¡Welcome back!</h1>
+                        <p>We're excited to see you again!</p>
+                    </div>
+
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="email">EMAIL OR PHONE NUMBER *</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">PASSWORD *</label>
+                            <div class="password-container">
+                                <input type="password" id="password" required>
+                                <button type="button" id="togglePassword" class="toggle-password">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <a href="#" class="forgot-password">Forgot your password?</a>
+
+                        <button type="submit" class="login-button">Log In</button>
+
+                        <p class="register-text">
+                            Need an account? <a href="/register.html" class="register-link">Register</a>
+                        </p>
+
+                        <div id="error-message" class="error-message"></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com"
+                        alt="QR Code">
+                </div>
+                <h2>Log in with QR Code</h2>
+                <p>Scan this with the <strong>SafeText mobile app</strong> to log in instantly.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="js/login.js"></script>
+
+</html>

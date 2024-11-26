@@ -30,9 +30,10 @@ RUN pecl install sqlsrv pdo_sqlsrv \
 # Instalar Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/html
+WORKDIR /var/www/html/api
 
-COPY ./src .
+# Copiar solo los archivos del backend
+COPY ./back/src .
 
 # Instalar dependencias de Composer
 RUN composer install --no-scripts --no-autoloader

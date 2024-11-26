@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeText</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/indexstyle.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <img src="/icons/SecurityLock.png" alt="SafeText Security Lock">
+                SafeText
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#">Download</a>
+                <a href="#">Features</a>
+                <a href="#">Security</a>
+                <a href="#">Support</a>
+                <a href="#">About</a>
+            </div>
+            <button class="login-btn" onclick="location.href='/login.html';">Login SafeText</button>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>SECURE MESSAGING REIMAGINED</h1>
+                <p>Welcome to SafeText, where privacy meets simplicity. Join a community that values secure
+                    communication,
+                    whether you're chatting with friends, family, or colleagues. Experience messaging that puts your
+                    security first.</p>
+                    <div class="cta-buttons">
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download SafeText
+                        </button>
+                        <button class="browser-btn" onclick="location.href='/login.html';">Open in Browser</button>
+                    </div>
+                    
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/664daa37ea162cadf9603500_Art.webp"
+                    alt="Secure Messaging Illustration" loading="lazy">
+            </div>
+        </div>
+    </header>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Premium</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                    <li><a href="#">Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SafeText. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const mobileMenu = document.querySelector('.nav-links');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+
+            if (!nav.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

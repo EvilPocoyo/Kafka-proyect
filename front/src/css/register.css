@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #5865F2;
+    --primary-dark: #4752C4;
+    --bg-dark: #313338;
+    --bg-darker: #2B2D31;
+    --text-light: #B9BBBE;
+    --text-muted: #949BA4;
+    --input-bg: #1E1F22;
+    --gradient-start: #2B2E83;
+    --gradient-mid: #3C4098;
+    --gradient-end: #5865F2;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --header-bg: rgba(43, 46, 131, 0.8);
+}
+
+body {
+    background: linear-gradient(135deg,
+        var(--gradient-start) 0%,
+        var(--gradient-mid) 25%,
+        var(--gradient-end) 50%,
+        var(--gradient-mid) 75%,
+        var(--gradient-start) 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.rain {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.drop {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-120px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.drop:nth-child(1) { left: 10%; animation-duration: 2.5s; animation-delay: 0s; }
+.drop:nth-child(2) { left: 20%; animation-duration: 2.1s; animation-delay: 0.2s; }
+.drop:nth-child(3) { left: 30%; animation-duration: 2.3s; animation-delay: 0.4s; }
+.drop:nth-child(4) { left: 40%; animation-duration: 2.7s; animation-delay: 0.1s; }
+.drop:nth-child(5) { left: 50%; animation-duration: 2.4s; animation-delay: 0.3s; }
+.drop:nth-child(6) { left: 60%; animation-duration: 2.2s; animation-delay: 0.5s; }
+.drop:nth-child(7) { left: 70%; animation-duration: 2.6s; animation-delay: 0.2s; }
+.drop:nth-child(8) { left: 80%; animation-duration: 2.3s; animation-delay: 0.4s; }
+.drop:nth-child(9) { left: 90%; animation-duration: 2.5s; animation-delay: 0.1s; }
+.drop:nth-child(10) { left: 95%; animation-duration: 2.4s; animation-delay: 0.3s; }
+
+.drop::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.4));
+    border-radius: 50%;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.brand-header {
+    padding: clamp(12px, 2vw, 20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 10px);
+    cursor: pointer;
+}
+
+.brand-logo {
+    width: clamp(24px, 4vw, 32px);
+    height: clamp(24px, 4vw, 32px);
+}
+
+.brand-name {
+    color: white;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    padding: clamp(16px, 3vw, 20px);
+    margin-top: clamp(60px, 10vh, 80px);
+    animation: fadeIn 0.5s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.register-box {
+    background-color: rgba(49, 51, 56, 0.95);
+    border-radius: clamp(8px, 2vw, 10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: flex;
+    overflow: hidden;
+    max-width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+.register-form {
+    padding: clamp(20px, 4vw, 32px);
+    flex: 1;
+    min-width: 0;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: clamp(16px, 4vw, 20px);
+}
+
+.register-header h1 {
+    color: white;
+    font-size: clamp(20px, 4vw, 24px);
+    margin-bottom: clamp(6px, 1.5vw, 8px);
+}
+
+.register-header p {
+    color: var(--text-light);
+    font-size: clamp(14px, 3vw, 16px);
+}
+
+.form-group {
+    margin-bottom: clamp(16px, 4vw, 20px);
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-light);
+    font-size: clamp(11px, 2.5vw, 12px);
+    font-weight: 700;
+    margin-bottom: clamp(6px, 1.5vw, 8px);
+}
+
+.form-group input {
+    width: 100%;
+    padding: clamp(8px, 2vw, 10px);
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-bg);
+    border-radius: 4px;
+    color: white;
+    font-size: clamp(14px, 3vw, 16px);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: white;
+}
+
+.register-button {
+    width: 100%;
+    padding: clamp(10px, 2.5vw, 12px);
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: clamp(20px, 4vw, 24px);
+}
+
+.register-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.login-text {
+    margin-top: clamp(12px, 3vw, 16px);
+    color: var(--text-muted);
+    font-size: clamp(12px, 2.5vw, 14px);
+    text-align: center;
+}
+
+.login-link {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.terms-group {
+    margin-top: clamp(20px, 4vw, 24px);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: clamp(12px, 2.5vw, 14px);
+    color: var(--text-light);
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    min-width: 18px;
+    height: 18px;
+    background-color: var(--input-bg);
+    border: 2px solid var(--text-muted);
+    border-radius: 4px;
+    transition: all 0.2s;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.checkbox-container:hover .checkmark {
+    border-color: var(--primary);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.terms-text {
+    line-height: 1.4;
+    flex: 1;
+}
+
+.link-primary {
+    color: var(--primary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.link-primary:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.features-section {
+    background: linear-gradient(135deg,
+        var(--gradient-start) 0%,
+        var(--gradient-mid) 50%,
+        var(--gradient-end) 100%);
+    padding: clamp(24px, 5vw, 32px);
+    width: clamp(250px, 35vw, 300px);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+.features-section h2 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(20px, 4vw, 24px);
+    margin-bottom: clamp(16px, 4vw, 20px);
+    text-align: center;
+}
+
+.features-list {
+    margin-top: clamp(24px, 5vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 4vw, 28px);
+    position: relative;
+    z-index: 1;
+}
+
+.feature-item {
+    text-align: center;
+    padding: clamp(12px, 2.5vw, 16px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+}
+
+.feature-item i {
+    font-size: clamp(24px, 5vw, 32px);
+    margin-bottom: clamp(8px, 2vw, 12px);
+}
+
+.feature-item h3 {
+    font-size: clamp(16px, 3.5vw, 20px);
+    margin-bottom: clamp(4px, 1vw, 8px);
+}
+
+.feature-item p {
+    font-size: clamp(12px, 2.5vw, 14px);
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .register-box {
+        flex-direction: column;
+    }
+
+    .features-section {
+        width: 100%;
+    }
+
+    .features-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(16px, 3vw, 20px);
+    }
+
+    .feature-item {
+        flex: 1;
+        min-width: 200px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-container {
+        padding: 12px;
+        margin-top: 60px;
+    }
+
+    .register-form {
+        padding: 20px;
+    }
+
+    .features-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .feature-item {
+        max-width: none;
+    }
+
+    .checkbox-container {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    .register-container {
+        padding: 8px;
+        margin-top: 40px;
+    }
+
+    .register-form {
+        padding: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .feature-item {
+        padding: 10px;
+    }
+
+    .feature-item i {
+        font-size: 20px;
+    }
+
+    .feature-item h3 {
+        font-size: 16px;
+    }
+
+    .feature-item p {
+        font-size: 12px;
+    }
+}

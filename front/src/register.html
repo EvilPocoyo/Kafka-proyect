@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeText - Create Account</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+    <div class="rain">
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+    </div>
+
+    <header class="brand-header">
+        <div class="brand" onclick="location.href='/index.html';">
+            <img src="/icons/SecurityLock.png" alt="SafeText Logo" class="brand-logo">
+            <span class="brand-name">SafeText</span>
+        </div>
+    </header>
+
+    <main class="register-container">
+        <div class="register-box">
+            <form class="register-form" id="registerForm">
+                <div class="register-header">
+                    <h1>Create an account</h1>
+                    <p>Join SafeText today!</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">EMAIL *</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">USERNAME *</label>
+                    <input type="text" id="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">PASSWORD *</label>
+                    <div class="password-container">
+                        <input type="password" id="password" required>
+                        <button type="button" id="togglePassword" class="toggle-password">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">CONFIRM PASSWORD *</label>
+                    <div class="password-container">
+                        <input type="password" id="confirmPassword" required>
+                        <button type="button" id="toggleConfirmPassword" class="toggle-password">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group terms-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        <span class="terms-text">
+                            I have read and agree to SafeText's
+                            <a href="#" class="link-primary">Terms of Service</a> and
+                            <a href="#" class="link-primary">Privacy Policy</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="register-button" onclick="location.href='login.html'">
+                    Continue
+                    <div class="spinner hidden"></div>
+                </button>
+
+                <p class="login-text">
+                    Already have an account?
+                    <a href="/login.html" class="login-link">Log In</a>
+                </p>
+            </form>
+
+            <div class="features-section">
+                <h2>Why SafeText?</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure</h3>
+                        <p>End-to-end encryption for all messages</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Fast</h3>
+                        <p>Real-time messaging with instant delivery</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i class="fas fa-globe"></i>
+                        <h3>Global</h3>
+                        <p>Connect with anyone, anywhere</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/front/src/js/register.js"></script>
+</body>
+
+</html>

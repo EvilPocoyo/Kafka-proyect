@@ -17,7 +17,6 @@ while (true) {
         case RD_KAFKA_RESP_ERR_NO_ERROR:
             $data = json_decode($message->payload, true);
             echo "Procesando mensaje: " . $message->payload . "\n";
-            // Aquí puedes agregar lógica adicional si es necesario
             break;
         case RD_KAFKA_RESP_ERR__PARTITION_EOF:
             echo "No más mensajes; esperando...\n";

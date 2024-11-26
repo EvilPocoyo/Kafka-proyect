@@ -5,7 +5,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www/html
+      - ./back/src:/var/www/html/api  # Monta el backend
+      - ./front/src:/var/www/html/front  # Monta el frontend
     depends_on:
       - kafka
       - db
@@ -15,7 +16,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./src:/var/www/html
+      - ./back/src:/var/www/html/api  # Monta el backend
+      - ./front/src:/var/www/html/front  # Monta el frontend
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
